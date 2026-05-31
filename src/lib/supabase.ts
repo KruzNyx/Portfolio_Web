@@ -1,9 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
 
-// ใช้ 'any' เพื่อข้ามการตรวจสอบ Type ของ TypeScript ทั้งหมด
-const env = process.env as any;
+const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-const supabaseUrl = env.NEXT_PUBLIC_SUPABASE_URL || "";
-const supabaseAnonKey = env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+console.log("DEBUG - URL:", url); // <--- เช็คใน Console ของ Browser ว่าขึ้น undefined ไหม
+console.log("DEBUG - KEY:", key); // <--- เช็คใน Console ของ Browser ว่าขึ้น undefined ไหม
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createClient(url || "", key || "");
