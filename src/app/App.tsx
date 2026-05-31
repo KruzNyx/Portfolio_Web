@@ -1,4 +1,4 @@
-import { projects, salesData } from '../data/portfolioData'; // 1. import ข้อมูลที่จำเป็นมา
+import { projects, salesData, categoryData } from '../data/portfolioData';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/sections/Projects';
@@ -11,12 +11,8 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Hero />
       <About />
-      
-      {/* 2. ส่งข้อมูลผ่าน Prop ให้ตรงตามที่ Component ต้องการ */}
       <Projects projects={projects} />
-      
-      <DashboardShowcase salesData={salesData} />
-      
+      <DashboardShowcase salesData={salesData} categoryData={categoryData} />
       <Contact />
       <Footer />
     </div>
