@@ -1,9 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// เปลี่ยนตรงนี้เป็นค่าจริงของคุณไปก่อน เพื่อเช็คว่า Error หายไหม
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "ใส่URLของคุณที่นี่";
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "ใส่KEYของคุณที่นี่";
 
-console.log("DEBUG - URL:", url); // <--- เช็คใน Console ของ Browser ว่าขึ้น undefined ไหม
-console.log("DEBUG - KEY:", key); // <--- เช็คใน Console ของ Browser ว่าขึ้น undefined ไหม
-
-export const supabase = createClient(url || "", key || "");
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
